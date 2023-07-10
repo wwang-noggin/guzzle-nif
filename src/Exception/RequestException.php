@@ -84,7 +84,8 @@ class RequestException extends TransferException
 
         $message = $label . ' [url] ' . $request->getUrl()
             . ' [status code] ' . $response->getStatusCode()
-            . ' [reason phrase] ' . $response->getReasonPhrase();
+            . ' [reason phrase] ' . $response->getReasonPhrase()
+            . ' [payload] ' . $response->getBody()->getContents();
 
         return new $className($message, $request, $response, $previous);
     }
